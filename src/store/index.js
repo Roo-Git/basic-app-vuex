@@ -5,12 +5,18 @@ export default createStore({
     titleApp: "MEMES APP",
     memes: [],
   },
-  mutations: {},
+  mutations: {
+    setMemes(state, payload) {
+      state.memes = payload;
+    },
+  },
   actions: {
-    async getMemes() {
+    async getMemes({ commit }) {
       try {
         const response = await fetch("https://api.imgflip.com/get_memes");
         const result = await response.json();
+
+        commit("setMemes", result.data.memes);
 
         console.log(result, "Soy el result del https");
       } catch (error) {
@@ -32,7 +38,11 @@ STATE - Datos de nuestra APP accesibles para ser renderizados desde cualquier co
 
 MUTATIONS - Funciones encargadas de actualizar el estado de nuestro Store cuando nosotros se lo indiquemos y lo necesitemos.
 
-ACTIONS - Parecidas a las Mutations. La diferencia es que en lugar de mutar un estado directamente, lo que hace es realizar un commit sobre una mutacion. Esto significa que puede ejecutar cualquier mutation y las actions pueden ser operaciones asíncronas.
+ACTIONS - Parecidas a las Mutations. La diferencia es que en lugar de mutar un estado directamente, 
+
+lo que hace es realizar un commit sobre una mutacion. Esto significa que puede ejecutar cualquier mutation y las actions pueden ser operaciones asíncronas.
+
+*payload = nuevos datos.
 
 GETTERS - Son funciones que sirven para obtener cualquier estado.
 

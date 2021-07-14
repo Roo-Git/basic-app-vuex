@@ -9,6 +9,7 @@ import ListMemes from "./components/ListMemes.vue";
 
 export default {
   name: "App",
+
   components: {
     ListMemes,
   },
