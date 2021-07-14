@@ -1,17 +1,14 @@
 <template>
   <div>
-    <ListMemes />
+    <p>{{ meme.name }}</p>
+    <img :src="meme.url" :alt="meme.name" />
   </div>
 </template>
 
 <script>
-import ListMemes from "./components/ListMemes.vue";
-
 export default {
-  name: "App",
-
-  components: {
-    ListMemes,
+  props: {
+    meme: Object,
   },
 };
 </script>
