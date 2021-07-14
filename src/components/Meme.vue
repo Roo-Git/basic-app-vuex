@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="col-3 meme">
     <p>{{ meme.name }}</p>
-    <img :src="meme.url" :alt="meme.name" />
+    <img :src="meme.url" :alt="meme.name" class="fluid" />
   </div>
 </template>
 
@@ -13,4 +13,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.meme {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid grey;
+}
+
+.meme img {
+  max-height: 200px;
+  min-width: 100px;
+}
+</style>

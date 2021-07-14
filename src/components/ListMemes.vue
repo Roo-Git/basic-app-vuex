@@ -1,6 +1,6 @@
 <template>
   <h1>{{ title }}</h1>
-  <div>
+  <div class="row">
     <template v-for="meme in memes" :key="meme.id">
       <Meme :meme="meme" />
     </template>
@@ -33,4 +33,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+h1 {
+  text-align: center;
+}
+</style>
