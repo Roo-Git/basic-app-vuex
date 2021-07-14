@@ -1,9 +1,18 @@
 <template>
-  <button type="button" class="btn btn-primary">Primary</button>
+  <div class="container">
+    <ListMemes />
+  </div>
 </template>
 
 <script>
-export default {};
+import ListMemes from "./components/ListMemes.vue";
+
+export default {
+  name: "App",
+  components: {
+    ListMemes,
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

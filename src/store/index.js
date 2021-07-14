@@ -2,11 +2,22 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    titleApp: "Memes",
+    titleApp: "MEMES APP",
     memes: [],
   },
   mutations: {},
-  actions: {},
+  actions: {
+    async getMemes() {
+      try {
+        const response = await fetch("https://api.imgflip.com/get_memes");
+        const result = await response.json();
+
+        console.log(result, "Soy el result del https");
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  },
   modules: {},
   getters: {},
 });
